@@ -56,7 +56,7 @@ export default function AddDisplayImage() {
 						message.error('Không thể upload ảnh');
 					}}>
 					<Upload
-						action={serverApi}
+						customRequest={() => {}}
 						accept=".jpg,.png"
 						multiple={false}
 						name="image"

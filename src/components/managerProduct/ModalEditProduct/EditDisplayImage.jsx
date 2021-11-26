@@ -95,7 +95,7 @@ export default function EditDisplayImage() {
 					)}
 				</div>
 				<Upload
-					action={serverApi}
+					customRequest={() => {}}
 					accept=".jpg,.png"
 					multiple={false}
 					name="image"

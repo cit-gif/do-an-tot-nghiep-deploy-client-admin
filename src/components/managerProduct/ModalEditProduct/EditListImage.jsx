@@ -148,7 +148,7 @@ export default function EditListImage() {
 					message.error('Không thể upload ảnh');
 				}}>
 				<Upload
-					action={serverApi}
+					customRequest={() => {}}
 					onPreview={handlePreviewImage}
 					onChange={handleChangeImage}
 					onRemove={handleShowConfirmDelete}

@@ -85,7 +85,7 @@ export default function AddListImage() {
 					message.error('Không thể upload ảnh');
 				}}>
 				<Upload
-					action={serverApi}
+					customRequest={() => {}}
 					onPreview={handlePreviewImage}
 					onChange={handleChangeImage}
 					accept=".jpg,.png"

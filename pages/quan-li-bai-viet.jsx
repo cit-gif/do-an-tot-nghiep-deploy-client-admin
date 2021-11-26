@@ -429,7 +429,7 @@ export default function Post() {
 							/>
 						)}
 						<Upload
-							action={serverApi}
+							customRequest={() => {}}
 							accept=".jpg,.png"
 							multiple={false}
 							name="image"
@@ -486,7 +486,7 @@ export default function Post() {
 							/>
 						)}
 						<Upload
-							upload={serverApi}
+							customRequest={() => {}}
 							accept=".jpg,.png"
 							multiple={false}
 							name="image"

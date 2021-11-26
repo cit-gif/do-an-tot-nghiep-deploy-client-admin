@@ -70,7 +70,7 @@ export default function EditNameAndAvatar() {
 			<Space size="large">
 				<Avatar size={64} src={formatUrlForImage(user.Avatar)} />
 				<Upload
-					action={serverApi}
+					customRequest={() => {}}
 					accept=".jpg,.png"
 					multiple={false}
 					name="image"
