@@ -57,6 +57,7 @@ export default function EditNameAndAvatar() {
 			setDisabledButtonSave(true);
 			message.success('Đổi Avatar thành công');
 		} catch (error) {
+			console.log(error);
 			if (error?.response?.data?.message) {
 				return message.error(error?.response.data?.message);
 			}
