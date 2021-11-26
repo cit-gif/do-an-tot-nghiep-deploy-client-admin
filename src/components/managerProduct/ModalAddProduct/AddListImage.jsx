@@ -10,6 +10,7 @@ import api from '@src/config/api';
 import showErrorHelper from '@src/helper/showErrorHelper';
 import { managerProductActions } from '../managerProductSlice';
 import { useProductContext } from '../managerProductContext';
+import { serverApi } from '@src/config/constrant';
 function getBase64(file) {
 	return new Promise((resolve, reject) => {
 		const reader = new FileReader();
@@ -84,6 +85,7 @@ export default function AddListImage() {
 					message.error('Không thể upload ảnh');
 				}}>
 				<Upload
+					action={serverApi}
 					onPreview={handlePreviewImage}
 					onChange={handleChangeImage}
 					accept=".jpg,.png"

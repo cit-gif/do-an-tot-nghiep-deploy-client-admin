@@ -1,4 +1,5 @@
 import api from '@src/config/api';
+import { serverApi } from '@src/config/constrant';
 import { formatUrlForImage } from '@src/helper/formatHelper';
 import useAccessTokenAdmin from '@src/hooks/useAccessTokenAdmin';
 import { Button, Card, message, Space, Upload } from 'antd';
@@ -55,6 +56,7 @@ export default function AddDisplayImage() {
 						message.error('Không thể upload ảnh');
 					}}>
 					<Upload
+						action={serverApi}
 						accept=".jpg,.png"
 						multiple={false}
 						name="image"

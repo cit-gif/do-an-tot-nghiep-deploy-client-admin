@@ -8,6 +8,7 @@ import axios from 'axios';
 import uuid from 'react-uuid';
 import dynamic from 'next/dynamic';
 import { formatUrlForImage } from '@src/helper/formatHelper';
+import { serverApi } from '@src/config/constrant';
 const Editor = dynamic(() => import('@src/components/QuillEditor'), {
 	ssr: false,
 });
@@ -428,6 +429,7 @@ export default function Post() {
 							/>
 						)}
 						<Upload
+							action={serverApi}
 							accept=".jpg,.png"
 							multiple={false}
 							name="image"
@@ -484,6 +486,7 @@ export default function Post() {
 							/>
 						)}
 						<Upload
+							upload={serverApi}
 							accept=".jpg,.png"
 							multiple={false}
 							name="image"

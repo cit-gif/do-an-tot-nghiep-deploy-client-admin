@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 import api from '@src/config/api';
 import { getCookie } from '@src/helper/helpCookie';
+import { serverApi } from '@src/config/constrant';
 
 function getBase64(img, callback) {
 	const reader = new FileReader();
@@ -69,6 +70,7 @@ export default function EditNameAndAvatar() {
 			<Space size="large">
 				<Avatar size={64} src={formatUrlForImage(user.Avatar)} />
 				<Upload
+					action={serverApi}
 					accept=".jpg,.png"
 					multiple={false}
 					name="image"
