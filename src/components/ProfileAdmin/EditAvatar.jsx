@@ -1,12 +1,10 @@
-import { useAppContext } from '@src/context';
-import { formatUrlForImage } from '@src/helper/formatHelper';
-import { Avatar, Button, Space, Upload, message, Card } from 'antd';
-import React, { useState } from 'react';
-import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 import api from '@src/config/api';
+import { useAppContext } from '@src/context';
+import customRequestAntd from '@src/helper/customRequestAntd';
+import { formatUrlForImage } from '@src/helper/formatHelper';
 import { getCookie } from '@src/helper/helpCookie';
-import { serverApi } from '@src/config/constrant';
-
+import { Avatar, Button, Card, message, Space, Upload } from 'antd';
+import React, { useState } from 'react';
 function getBase64(img, callback) {
 	const reader = new FileReader();
 	reader.addEventListener('load', () => callback(reader.result));
@@ -70,9 +68,7 @@ export default function EditNameAndAvatar() {
 			<Space size="large">
 				<Avatar size={64} src={formatUrlForImage(user.Avatar)} />
 				<Upload
-					customRequest={({ onSuccess }) => {
-						onSuccess('oke');
-					}}
+					customRequest={customRequestAntd}
 					accept=".jpg,.png"
 					multiple={false}
 					name="image"

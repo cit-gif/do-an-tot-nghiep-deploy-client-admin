@@ -10,6 +10,7 @@ import api from '@src/config/api';
 import showErrorHelper from '@src/helper/showErrorHelper';
 import { managerProductActions } from '../managerProductSlice';
 import { serverApi } from '@src/config/constrant';
+import customRequestAntd from '@src/helper/customRequestAntd';
 function getBase64(img, callback) {
 	const reader = new FileReader();
 	reader.addEventListener('load', () => callback(reader.result));
@@ -148,9 +149,7 @@ export default function EditListImage() {
 					message.error('Không thể upload ảnh');
 				}}>
 				<Upload
-					customRequest={({ onSuccess }) => {
-						onSuccess('oke');
-					}}
+					customRequest={customRequestAntd}
 					onPreview={handlePreviewImage}
 					onChange={handleChangeImage}
 					onRemove={handleShowConfirmDelete}

@@ -1,5 +1,6 @@
 import api from '@src/config/api';
 import { serverApi } from '@src/config/constrant';
+import customRequestAntd from '@src/helper/customRequestAntd';
 import { formatUrlForImage } from '@src/helper/formatHelper';
 import useAccessTokenAdmin from '@src/hooks/useAccessTokenAdmin';
 import { Button, Card, message, Space, Upload } from 'antd';
@@ -56,9 +57,7 @@ export default function AddDisplayImage() {
 						message.error('Không thể upload ảnh');
 					}}>
 					<Upload
-						customRequest={({ onSuccess }) => {
-							onSuccess('oke');
-						}}
+						customRequest={customRequestAntd}
 						accept=".jpg,.png"
 						multiple={false}
 						name="image"

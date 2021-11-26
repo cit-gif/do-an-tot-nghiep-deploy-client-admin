@@ -11,6 +11,7 @@ import showErrorHelper from '@src/helper/showErrorHelper';
 import { managerProductActions } from '../managerProductSlice';
 import { useProductContext } from '../managerProductContext';
 import { serverApi } from '@src/config/constrant';
+import customRequestAntd from '@src/helper/customRequestAntd';
 function getBase64(file) {
 	return new Promise((resolve, reject) => {
 		const reader = new FileReader();
@@ -85,9 +86,7 @@ export default function AddListImage() {
 					message.error('Không thể upload ảnh');
 				}}>
 				<Upload
-					customRequest={({ onSuccess }) => {
-						onSuccess('oke');
-					}}
+					customRequest={customRequestAntd}
 					onPreview={handlePreviewImage}
 					onChange={handleChangeImage}
 					accept=".jpg,.png"

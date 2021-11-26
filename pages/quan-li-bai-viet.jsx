@@ -9,6 +9,7 @@ import uuid from 'react-uuid';
 import dynamic from 'next/dynamic';
 import { formatUrlForImage } from '@src/helper/formatHelper';
 import { serverApi } from '@src/config/constrant';
+import customRequestAntd from '@src/helper/customRequestAntd';
 const Editor = dynamic(() => import('@src/components/QuillEditor'), {
 	ssr: false,
 });
@@ -429,9 +430,7 @@ export default function Post() {
 							/>
 						)}
 						<Upload
-							customRequest={({ onSuccess }) => {
-								onSuccess('oke');
-							}}
+							customRequest={customRequestAntd}
 							accept=".jpg,.png"
 							multiple={false}
 							name="image"
@@ -488,9 +487,7 @@ export default function Post() {
 							/>
 						)}
 						<Upload
-							customRequest={({ onSuccess }) => {
-								onSuccess('oke');
-							}}
+							customRequest={customRequestAntd}
 							accept=".jpg,.png"
 							multiple={false}
 							name="image"
