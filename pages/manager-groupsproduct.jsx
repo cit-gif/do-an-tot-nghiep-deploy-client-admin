@@ -54,8 +54,8 @@ function ManagerGroupsProduct() {
 
 			setMetaData(res.data.metaData[0]);
 		} catch (error) {
-			enqueueSnackbar('Đã xảy ra lỗi tại quản lí nhóm sản phẩm');
-			console.log(error.response?.data);
+			// enqueueSnackbar('Đã xảy ra lỗi tại quản lí nhóm sản phẩm');
+			console.log(error);
 		}
 		setShowLoading(false);
 	};
