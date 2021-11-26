@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Convert JSON to XLS and Download</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.min.css" />
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.6/xlsx.full.min.js"></script>
+
+		<script src="https://rawgit.com/google/code-prettify/master/loader/run_prettify.js?autoload=true&amp;skin=sunburst&amp;lang=css" defer></script>
+		<style type="text/css">
+			.operative {
+				font-weight: bold;
+				border: 1px solid yellow;
+			}
+
+			#quine {
+				border: 4px solid #88c;
+			}
+
+			.spacer {
+				margin-top: 15px;
+			}
+		</style>
+	</head>
+
+	<body class="container">
+		<script>
+			$(function () {
+				var createXLSLFormatObj = [];
+
+				/* XLS Head Columns */
+				var xlsHeader = ["EmployeeID", "Full Name"];
+
+				/* XLS Rows Data */
+				var xlsRows = [
+					{
+						EmployeeID: "EMP001",
+						FullName: "Jolly",
+					},
+					{
+						EmployeeID: "EMP002",
+						FullName: "Macias",
+					},
+					{
+						EmployeeID: "EMP003",
+						FullName: "Lucian",
+					},
+					{
+						EmployeeID: "EMP004",
+						FullName: "Blaze",
+					},
+					{
+						EmployeeID: "EMP005",
+						FullName: "Blossom",
+					},
+					{
+						EmployeeID: "EMP006",
+						FullName: "Kerry",
+					},
+					{
+						EmployeeID: "EMP007",
+						FullName: "Adele",
+					},
+					{
+						EmployeeID: "EMP008",
+						FullName: "Freaky",
+					},
+					{
+						EmployeeID: "EMP009",
+						FullName: "Brooke",
+					},
+					{
+						EmployeeID: "EMP010",
+						FullName: "FreakyJolly.Com",
+					},
+				];
+
+				createXLSLFormatObj.push(xlsHeader);
+				$.each(xlsRows, function (index, value) {
+					var innerRowData = [];
+					// $("tbody").append("<tr><td>" + value.EmployeeID + "</td><td>" + value.FullName + "</td></tr>");
+					$.each(value, function (ind, val) {
+						innerRowData.push(val);
+					});
+					createXLSLFormatObj.push(innerRowData);
+				});
+
+				/* File Name */
+				var filename = "FreakyJSON_To_XLS.xlsx";
+
+				/* Sheet Name */
+				var ws_name = "FreakySheet";
+
+				if (typeof console !== "undefined") console.log(new Date());
+				var wb = XLSX.utils.book_new(),
+					ws = XLSX.utils.aoa_to_sheet(createXLSLFormatObj);
+
+				/* Add worksheet to workbook */
+				XLSX.utils.book_append_sheet(wb, ws, ws_name);
+
+				/* Write workbook and Download */
+				if (typeof console !== "undefined") console.log(new Date());
+				XLSX.writeFile(wb, filename);
+				if (typeof console !== "undefined") console.log(new Date());
+			});
+		</script>
+		<span class="display-4 spacer">Convert JSON data into XLS EXCEL and Download</span>
+		<h4 class="display-5 spacer">Table Format of DATA to Download</h4>
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">EmployeeID</th>
+					<th scope="col">FullName</th>
+				</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
+		<h4 class="display-5 spacer">JSON Format of DATA to Download</h4>
+		<!-- Language hints can be put in XML application directive style comments. -->
+		<?prettify lang=html linenums=true?>
+		<pre class="prettyprint" id="quine">
+
+
+[{
+		"EmployeeID": "EMP001",
+		"FullName": "Jolly"
+	},
+	{
+		"EmployeeID": "EMP002",
+		"FullName": "Macias"
+	},
+	{
+		"EmployeeID": "EMP003",
+		"FullName": "Lucian"
+	},
+	{
+		"EmployeeID": "EMP004",
+		"FullName": "Blaze"
+	},
+	{
+		"EmployeeID": "EMP005",
+		"FullName": "Blossom"
+	},
+	{
+		"EmployeeID": "EMP006",
+		"FullName": "Kerry"
+	},
+	{
+		"EmployeeID": "EMP007",
+		"FullName": "Adele"
+	},
+	{
+		"EmployeeID": "EMP008",
+		"FullName": "Freaky"
+	},
+	{
+		"EmployeeID": "EMP009",
+		"FullName": "Brooke"
+	},
+	{
+		"EmployeeID": "EMP010",
+		"FullName": "FreakyJolly.Com"
+	}
+]
+
+</pre
+		>
+	</body>
+</html>

@@ -1,0 +1,150 @@
+/* Tailwindcss */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+/* material-ui tailwindcss */
+@import '@material-tailwind/react/tailwind.css';
+/* quill editor */
+@import './quill.imageUploader.css';
+@import './quill.span-wrapper.css';
+@import './quill.css';
+@import'./quill-better-table.css';
+/* highlight css for code */
+/* @import 'highlight.js/styles/darcula.css'; */
+/* fallback */
+th {
+      position: -webkit-sticky;
+      position: sticky;
+      top: 0;
+      z-index: 2;
+}
+th[scope=row] {
+      position: -webkit-sticky;
+      position: sticky;
+      left: 0;
+      z-index: 1;
+}
+@font-face {
+      font-family: 'Material Icons';
+      font-style: normal;
+      font-weight: 400;
+      src: url(./material-font.woff2) format('woff2');
+}
+*{
+      box-sizing: border-box;
+}
+html, body {
+      height: 100%;
+}
+#__next{
+      height: 100%;
+}
+.material-icons {
+      font-family: 'Material Icons';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+}
+/**
+ * ==============================================
+ * Dot Falling
+ * ==============================================
+ */
+.dot-falling {
+      position: relative;
+      left: -9999px;
+      width: 5px;
+      height: 5px;
+      border-radius: 5px;
+      background-color: #71717a;
+      color: #71717a;
+      box-shadow: 9999px 0 0 0 #71717a;
+      animation: dotFalling 1.5s infinite linear;
+      animation-delay: .1s;
+}
+
+.dot-falling::before,
+.dot-falling::after {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      top: 0;
+}
+
+.dot-falling::before {
+      width: 5px;
+      height: 5px;
+      border-radius: 5px;
+      background-color: #71717a;
+      color: #71717a;
+      animation: dotFallingBefore 1.5s infinite linear;
+      animation-delay: 0s;
+}
+
+.dot-falling::after {
+      width: 5px;
+      height: 5px;
+      border-radius: 5px;
+      background-color: #71717a;
+      color: #71717a;
+      animation: dotFallingAfter 1.5s infinite linear;
+      animation-delay: .2s;
+}
+
+@keyframes dotFalling {
+      0% {
+            box-shadow: 9999px -15px 0 0 rgba(152, 128, 255, 0);
+      }
+
+      25%,
+      50%,
+      75% {
+            box-shadow: 9999px 0 0 0 #71717a;
+      }
+
+      100% {
+            box-shadow: 9999px 15px 0 0 rgba(152, 128, 255, 0);
+      }
+}
+
+@keyframes dotFallingBefore {
+      0% {
+            box-shadow: 9984px -15px 0 0 rgba(152, 128, 255, 0);
+      }
+
+      25%,
+      50%,
+      75% {
+            box-shadow: 9984px 0 0 0 #71717a;
+      }
+
+      100% {
+            box-shadow: 9984px 15px 0 0 rgba(152, 128, 255, 0);
+      }
+}
+
+@keyframes dotFallingAfter {
+      0% {
+            box-shadow: 10014px -15px 0 0 rgba(152, 128, 255, 0);
+      }
+
+      25%,
+      50%,
+      75% {
+            box-shadow: 10014px 0 0 0 #71717a;
+      }
+
+      100% {
+            box-shadow: 10014px 15px 0 0 rgba(152, 128, 255, 0);
+      }
+}
+/* // */
