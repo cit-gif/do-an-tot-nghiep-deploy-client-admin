@@ -95,7 +95,9 @@ export default function EditDisplayImage() {
 					)}
 				</div>
 				<Upload
-					customRequest={() => {}}
+					customRequest={({ onSuccess }) => {
+						onSuccess('oke');
+					}}
 					accept=".jpg,.png"
 					multiple={false}
 					name="image"

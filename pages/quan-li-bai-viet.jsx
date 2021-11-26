@@ -429,7 +429,9 @@ export default function Post() {
 							/>
 						)}
 						<Upload
-							customRequest={() => {}}
+							customRequest={({ onSuccess }) => {
+								onSuccess('oke');
+							}}
 							accept=".jpg,.png"
 							multiple={false}
 							name="image"
@@ -486,7 +488,9 @@ export default function Post() {
 							/>
 						)}
 						<Upload
-							customRequest={() => {}}
+							customRequest={({ onSuccess }) => {
+								onSuccess('oke');
+							}}
 							accept=".jpg,.png"
 							multiple={false}
 							name="image"
