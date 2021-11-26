@@ -9,7 +9,7 @@ export default function useAccessTokenAdmin() {
 		const accessToken = getCookie('accessTokenAdmin');
 		if (!accessToken || accessToken == '') {
 			message.error('Bạn cần đăng nhập lại');
-			return router.replace('/');
+			return router.replace('/login');
 		}
 		setAccessTokenAdmin(accessToken);
 	}, []);
